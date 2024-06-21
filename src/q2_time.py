@@ -18,16 +18,20 @@ emoji_pattern = re.compile("["
 # Función para extraer emojis
 def extract_emojis(text):
     return emoji_pattern.findall(text)
-    
+
+"""
+Retorna una lista de tuplas con el top 10 emojis más usados con su respectivo conteo con enfoque de optimizacion de tiempo
+
+Parámetros:
+   file_path: str - ruta del archivo .json que contiene el dataset de los tweets 
+
+Retorna:
+    List[Tuple[datetime.date, str]]: Lista de tuplas con ('emoji', 'conteo').
+"""
 def q2_time(file_path: str) -> List[Tuple[str, int]]:
     # convierte el path a un df con solo las columnas necesarias ['content']
     df = dt.dataset_q2(file_path)
 
-    # Medición del tiempo de ejecución
-    all_emojis = [emoji for text in df['content'] for emoji in extract_emojis(text)]
-    all_emojis = [emoji for text in df['content'] for emoji in extract_emojis(text)]
-    [emoji for text in df['content'] for emoji in extract_emojis(text)]
-    
     # Aplicar la extracción de emojis y contar
     all_emojis = [emoji for text in df['content'] for emoji in extract_emojis(text)]
     emoji_counts = Counter(all_emojis)
