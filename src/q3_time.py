@@ -1,7 +1,6 @@
 from typing import List, Tuple
 import dataset_treatment as dt
 import pandas as pd
-from typing import List, Tuple
 from collections import defaultdict, Counter
 
 """
